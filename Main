@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stars with Olga</title>
+  <style>
+    /* ========= Global Settings ========= */
+    :root {
+      --color-bg-start: #0b1a2d;
+      --color-bg-end:   #000000;
+      --color-gold:     #f0c674;
+      --font-main:      'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Body background and font */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(ellipse at center, var(--color-bg-start), var(--color-bg-end));
+      color: #eeeeee;
+    }
+
+    /* Container (centers content + max width) */
+    .sw-stars__container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .sw-stars__header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .sw-stars__title {
+      font-size: 3em;
+      color: var(--color-gold);
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px var(--color-gold);
+      margin: 0;
+    }
+
+    /* Language switcher (buttons) */
+    .sw-stars__lang-switch {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .sw-stars__lang-switch button {
+      background-color: var(--color-gold);
+      color: #000000;
+      border: none;
+      padding: 10px 16px;
+      margin: 0 8px;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 5px var(--color-gold);
+      transition: background-color 0.2s ease;
+    }
+    .sw-stars__lang-switch button:hover {
+      background-color: #d4b058;
+    }
+
+    /* Section common style */
+    .sw-stars__section {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 15px rgba(240, 198, 116, 0.4);
+    }
+    .sw-stars__section h2 {
+      color: var(--color-gold);
+      margin-top: 0;
+      margin-bottom: 12px;
+      text-shadow: 0 0 5px var(--color-gold);
+      font-size: 1.8em;
+    }
+    .sw-stars__section p,
+    .sw-stars__section ul {
+      font-size: 1.1em;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Bio + Photo */
+    .sw-stars__bio-photo {
+      display: block;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px auto;
+      box-shadow: 0 0 12px var(--color-gold);
+    }
+    .sw-stars__bio-text {
+      text-align: center;
+    }
+
+    /* Packages list */
+    .sw-stars__packages-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sw-stars__packages-list li {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 8px var(--color-gold);
+    }
+
+    /* Booking button */
+    .sw-stars__booking-btn {
+      display: inline-block;
+      margin: 0 auto 40px auto;
+      padding: 16px 28px;
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #000000;
+      background-color: var(--color-gold);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 12px var(--color-gold);
+      transition: background-color 0.2s ease;
+    }
+    .sw-stars__booking-btn:hover {
+      background-color: #d4b058;
+    }
+
+    /* Footer */
+    .sw-stars__footer {
+      text-align: center;
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 0.9em;
+      color: #aaaaaa;
+      border-top: 1px solid #333333;
+    }
+
+    /* Hide all language blocks by default */
+    .sw-lang {
+      display: none;
+    }
+    /* Show only active language block */
+    .sw-lang--active {
+      display: block;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+      .sw-stars__title {
+        font-size: 2.4em;
+      }
+      .sw-stars__booking-btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sw-stars__container">
+
+    <!-- Header Section -->
+    <header class="sw-stars__header">
+      <h1 class="sw-stars__title">Stars with Olga</h1>
+    </header>
+
+    <!-- Language Switcher -->
+    <nav class="sw-stars__lang-switch">
+      <button type="button" data-lang="ru">Русский</button>
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="fr">Français</button>
+    </nav>
+
+    <!-- About Olga (RU / EN / FR blocks) -->
+    <section class="sw-stars__section sw-stars__section--bio">
+      <!-- Russian Bio -->
+      <div class="sw-lang" data-lang-block="ru">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Фото Ольги"
+          class="sw-stars__bio-photo"
+        />
+        <h2>Ольга</h2>
+        <p class="sw-stars__bio-text">
+          Ольга — профессиональный астролог, предлагающий глубокие консультации для вашего жизненного пути.
+        </p>
+      </div>
+      <!-- English Bio -->
+      <div class="sw-lang" data-lang-block="en">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Olga’s Photo"
+          class="sw-stars__bio-photo"
+        />
+        <h2>About Olga</h2>
+        <p class="sw-stars__bio-text">
+          Olga is a professional astrologer offering insightful readings to guide your life journey.
+        </p>
+      </div>
+      <!-- French Bio -->
+      <div class="sw-lang" data-lang-block="fr">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Photo d’Olga"
+          class="sw-stars__bio-photo"
+        />
+        <h2>À propos d’Olga</h2>
+        <p class="sw-stars__bio-text">
+          Olga est une astrologue professionnelle offrant des consultations éclairantes pour guider votre vie.
+        </p>
+      </div>
+    </section>
+
+    <!-- Packages (RU / EN / FR blocks) -->
+    <section class="sw-stars__section sw-stars__section--packages">
+      <!-- Russian Packages -->
+      <div class="sw-lang" data-lang-block="ru">
+        <h2>Пакеты услуг</h2>
+        <ul class="sw-stars__packages-list">
+          <li>Пакет из 3 консультаций</li>
+          <li>Пакет из 5 консультаций</li>
+          <li>Пакет из 7 консультаций</li>
+        </ul>
+      </div>
+      <!-- English Packages -->
+      <div class="sw-lang" data-lang-block="en">
+        <h2>Packages</h2>
+        <ul class="sw-stars__packages-list">
+          <li>3 Readings Package</li>
+          <li>5 Readings Package</li>
+          <li>7 Readings Package</li>
+        </ul>
+      </div>
+      <!-- French Packages -->
+      <div class="sw-lang" data-lang-block="fr">
+        <h2>Forfaits</h2>
+        <ul class="sw-stars__packages-list">
+          <li>Forfait 3 consultations</li>
+          <li>Forfait 5 consultations</li>
+          <li>Forfait 7 consultations</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Booking Button (same for all languages) -->
+    <a
+      href="https://wa.me/1234567890"
+      target="_blank"
+      class="sw-stars__booking-btn"
+    >
+      Book a Session on WhatsApp
+    </a>
+
+    <!-- Pricing Info (RU / EN / FR blocks) -->
+    <section class="sw-stars__section sw-stars__section--pricing">
+      <!-- Russian Pricing -->
+      <div class="sw-lang" data-lang-block="ru">
+        <h2>Цены</h2>
+        <p>
+          Стандартные цены с 9:00 до 18:00. Более высокие цены за сеансы вне этого времени.
+        </p>
+      </div>
+      <!-- English Pricing -->
+      <div class="sw-lang" data-lang-block="en">
+        <h2>Pricing</h2>
+        <p>
+          Standard rates apply 9 am–6 pm. Higher rates for sessions booked outside these hours.
+        </p>
+      </div>
+      <!-- French Pricing -->
+      <div class="sw-lang" data-lang-block="fr">
+        <h2>Tarification</h2>
+        <p>
+          Tarifs standards de 9 h à 18 h. Tarifs plus élevés pour les séances en dehors de ces heures.
+        </p>
+      </div>
+    </section>
+
+    <!-- Payment Methods (RU / EN / FR blocks) -->
+    <section class="sw-stars__section sw-stars__section--payments">
+      <!-- Russian Payments -->
+      <div class="sw-lang" data-lang-block="ru">
+        <h2>Способы оплаты</h2>
+        <p>Принимаем переводы через Сбербанк и оплату кредитной картой для международных клиентов.</p>
+      </div>
+      <!-- English Payments -->
+      <div class="sw-lang" data-lang-block="en">
+        <h2>Payment Methods</h2>
+        <p>We accept Sberbank transfers for local clients and Credit Card payments for international clients.</p>
+      </div>
+      <!-- French Payments -->
+      <div class="sw-lang" data-lang-block="fr">
+        <h2>Méthodes de paiement</h2>
+        <p>Nous acceptons les virements Sberbank pour les clients locaux et les paiements par carte de crédit pour les clients internationaux.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="sw-stars__footer">
+      &copy; 2025 Stars with Olga. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // This script handles language switching.
+    // On page load, it will show only the "ru" (Russian) blocks by default.
+    // When you click one of the language buttons, it hides all .sw-lang and
+    // shows only those with data-lang-block matching the chosen language.
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Cache all language blocks and buttons
+      var langBlocks = document.querySelectorAll(".sw-lang");
+      var langButtons = document.querySelectorAll(".sw-stars__lang-switch button");
+
+      // Function to show a particular language
+      function showLanguage(lang) {
+        langBlocks.forEach(function (block) {
+          if (block.getAttribute("data-lang-block") === lang) {
+            block.classList.add("sw-lang--active");
+          } else {
+            block.classList.remove("sw-lang--active");
+          }
+        });
+      }
+
+      // Attach click handlers to buttons
+      langButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var selectedLang = this.getAttribute("data-lang");
+          showLanguage(selectedLang);
+        });
+      });
+
+      // Default: show Russian ("ru")
+      showLanguage("ru");
+    });
+  </script>
+</body>
+</html>
